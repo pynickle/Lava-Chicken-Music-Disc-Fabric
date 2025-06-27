@@ -1,9 +1,11 @@
 package com.euphony.lava_chicken_music_disc;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.fabricmc.fabric.api.loot.v3.LootTableSource;
 import net.minecraft.entity.EntityType;
+import net.minecraft.item.ItemGroups;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.EntityPropertiesLootCondition;
@@ -43,6 +45,9 @@ public class LavaChickenMusicDisc implements ModInitializer {
                         .with(ItemEntry.builder(ModItems.MUSIC_DISC_LAVA_CHICKEN));
                 tableBuilder.pool(poolBuilder.build());
             }
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register((entries) -> {
+            entries.add(ModItems.MUSIC_DISC_LAVA_CHICKEN);
         });
     }
 }

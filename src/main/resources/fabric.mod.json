@@ -7,7 +7,7 @@
   "authors": [],
   "contact": {},
   "license": "MIT",
-  "icon": "assets/lava_chicken_music_disc/icon.png",
+  "icon": "assets/lava_chicken_music_disc/textures/item/music_disc_lava_chicken.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
