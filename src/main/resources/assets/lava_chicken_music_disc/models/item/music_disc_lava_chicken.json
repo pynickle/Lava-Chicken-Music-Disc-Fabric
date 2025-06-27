@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/template_music_disc",
+  "textures": {
+    "layer0": "lava_chicken_music_disc:item/music_disc_lava_chicken"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "lava_chicken_music_disc",
+  "version": "${version}",
+  "name": "Lava Chicken Music Disc",
+  "description": "Lava Chicken Music Disc ported to lower version",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/lava_chicken_music_disc/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.euphony.lava_chicken_music_disc.client.LavaChickenMusicDiscDataGenerator"
+    ],
+    "client": [
+      "com.euphony.lava_chicken_music_disc.client.LavaChickenMusicDiscClient"
+    ],
+    "main": [
+      "com.euphony.lava_chicken_music_disc.LavaChickenMusicDisc"
+    ]
+  },
+  "mixins": [
+    "lava_chicken_music_disc.mixins.json",
+    {
+      "config": "lava_chicken_music_disc.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

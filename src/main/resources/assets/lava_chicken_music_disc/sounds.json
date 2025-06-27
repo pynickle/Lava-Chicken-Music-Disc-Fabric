@@ -1,0 +1,10 @@
+{
+  "music_disc.lava_chicken": {
+    "sounds": [
+      {
+        "name": "lava_chicken_music_disc:records/lava_chicken",
+        "stream": true
+      }
+    ]
+  }
+}
