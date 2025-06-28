@@ -17,7 +17,10 @@ import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.entity.EntityFlagsPredicate;
 import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.EntityTypePredicate;
+import net.minecraft.registry.RegistryEntryLookup;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
@@ -30,6 +33,7 @@ public class LavaChickenMusicDisc implements ModInitializer {
         ModSounds.initialize();
 
         LootTableEvents.MODIFY.register((RegistryKey<LootTable> key, LootTable.Builder tableBuilder, LootTableSource source, RegistryWrapper.WrapperLookup registries) -> {
+            RegistryEntryLookup<EntityType<?>> entityTypeLookup = registries.getOrThrow(RegistryKeys.ENTITY_TYPE);
             if (key.getValue().equals(Identifier.ofVanilla("entities/zombie")) && source.isBuiltin()) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -38,7 +42,7 @@ public class LavaChickenMusicDisc implements ModInitializer {
                                 new EntityPredicate.Builder()
                                         .flags(new EntityFlagsPredicate.Builder().isBaby(true))
                                         .vehicle(new EntityPredicate.Builder()
-                                                .type(EntityType.CHICKEN)
+                                                .type(EntityTypePredicate.create(entityTypeLookup, EntityType.CHICKEN))
                                         )
                         ).build())
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)).build())

@@ -3,12 +3,15 @@ package com.euphony.lava_chicken_music_disc;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 public class ModItems {
     public static final Item MUSIC_DISC_LAVA_CHICKEN = register(
-            new Item(new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSongs.LAVA_CHICKEN)),
+            new Item(new Item.Settings().maxCount(1).rarity(Rarity.RARE).jukeboxPlayable(ModSongs.LAVA_CHICKEN)
+                    .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(LavaChickenMusicDisc.MOD_ID, "music_disc_lava_chicken")))),
             "music_disc_lava_chicken"
     );
 
