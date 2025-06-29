@@ -36,9 +36,9 @@ public class LavaChickenMusicDisc implements ModInitializer {
                         .conditionally(KilledByPlayerLootCondition.builder())
                         .conditionally(EntityPropertiesLootCondition.builder(LootContext.EntityTarget.THIS,
                                 new EntityPredicate.Builder()
-                                        .flags(new EntityFlagsPredicate.Builder().isBaby(true))
+                                        .flags(new EntityFlagsPredicate.Builder().isBaby(true).build())
                                         .vehicle(new EntityPredicate.Builder()
-                                                .type(EntityTypePredicate.create(EntityType.CHICKEN))
+                                                .type(EntityTypePredicate.create(EntityType.CHICKEN)).build()
                                         )
                         ).build())
                         .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1f, 1f)).build())
