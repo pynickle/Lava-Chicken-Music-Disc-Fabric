@@ -29,8 +29,8 @@ public class LavaChickenMusicDisc implements ModInitializer {
         ModItems.initialize();
         ModSounds.initialize();
 
-        LootTableEvents.MODIFY.register((RegistryKey<LootTable> key, LootTable.Builder tableBuilder, LootTableSource source) -> {
-            if (key.getValue().equals(Identifier.of("minecraft", "entities/zombie")) && source.isBuiltin()) {
+        LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+            if (id.equals(Identifier.of("minecraft", "entities/zombie")) && source.isBuiltin()) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(KilledByPlayerLootCondition.builder())
